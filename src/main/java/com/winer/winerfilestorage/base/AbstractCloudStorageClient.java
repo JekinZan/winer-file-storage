@@ -1,9 +1,8 @@
 package com.winer.winerfilestorage.base;
 
-import com.winer.winerfilestorage.properties.AbstractStorageClientProperties;
-import com.winer.winerfilestorage.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import lombok.Getter;
-import sun.swing.StringUIClientPropertyKey;
+
 
 /**
  * @program: winer-file-storage-dev
@@ -28,7 +27,7 @@ public abstract class AbstractCloudStorageClient<TBucket extends AbstractBucket>
      */
     public AbstractCloudStorageClient(String endpoint, String defaultBucketName,
                                       String accessKey, String secretKey) {
-        super(StringUtils.removeALLWhitespace(endpoint), defaultBucketName);
+        super(endpoint, defaultBucketName);
         this.accessKey = accessKey;
         this.secretKey = secretKey;
         int index = this.getEndpoint().indexOf("//");
@@ -47,6 +46,7 @@ public abstract class AbstractCloudStorageClient<TBucket extends AbstractBucket>
      * @param properties 属性
      */
     public AbstractCloudStorageClient(AbstractStorageKeyClientProperties properties) {
+
         this(properties.getEndpoint(),
                 properties.getDefaultBucketName(),
                 properties.getAccessKey(),
@@ -70,7 +70,7 @@ public abstract class AbstractCloudStorageClient<TBucket extends AbstractBucket>
     @Override
     public String getAccessUrl(String bucketName, String fullPath) {
         bucketName = this.checkBucketName(bucketName);
-        if (StringUtils.isNullOrBlank(fullPath)) {
+        if (StrUtil.isBlank(fullPath)) {
             throw new RuntimeException("完整路径为空.");
         }
         FileInfo fileInfo = new FileInfo(fullPath, true);

@@ -1,0 +1,36 @@
+{
+  "groups": [
+    {
+      "name": "winer.storage.client",
+      "type": "com.winer.winerfilestorage.properties.WinerStorageProperties",
+      "sourceType": "com.winer.winerfilestorage.properties.WinerStorageProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "winer.storage.client.aliyun",
+      "type": "com.winer.winerfilestorage.clients.aliyun.AliyunStorageClientProperties",
+      "description": "阿里云属性",
+      "sourceType": "com.winer.winerfilestorage.properties.WinerStorageProperties"
+    },
+    {
+      "name": "winer.storage.client.fast-d-f-s",
+      "type": "com.winer.winerfilestorage.clients.fastdfs.FastDFSStorageClientProperties",
+      "description": "FastDFS 属性",
+      "sourceType": "com.winer.winerfilestorage.properties.WinerStorageProperties"
+    },
+    {
+      "name": "winer.storage.client.local",
+      "type": "com.winer.winerfilestorage.clients.local.LocalStorageClientProperties",
+      "description": "本地磁盘属性",
+      "sourceType": "com.winer.winerfilestorage.properties.WinerStorageProperties"
+    },
+    {
+      "name": "winer.storage.client.minio",
+      "type": "com.winer.winerfilestorage.clients.minio.MinioStorageClientProperties",
+      "description": "Minio 属性",
+      "sourceType": "com.winer.winerfilestorage.properties.WinerStorageProperties"
+    }
+  ],
+  "hints": []
+}

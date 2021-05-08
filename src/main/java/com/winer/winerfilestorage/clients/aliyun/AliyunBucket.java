@@ -13,7 +13,8 @@ import lombok.ToString;
  * @Date 2021/4/26
  */
 @ToString(callSuper = true)
-@Data
+@Setter
+@Getter
 public class AliyunBucket extends AbstractLocationBucket {
 
     private static final long serialVersionUID = 3991689031661897156L;
@@ -21,4 +22,8 @@ public class AliyunBucket extends AbstractLocationBucket {
     private String extranetEndpoint;
 
     private String intranetEndpoint;
+
+    public AliyunBucket(String name) {
+        super(name);
+    }
 }

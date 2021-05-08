@@ -1,8 +1,10 @@
 package com.winer.winerfilestorage.base;
 
-import com.winer.winerfilestorage.base.FileObject;
+import com.winer.winerfilestorage.channel.Channel;
+import org.csource.common.MyException;
+
+import java.io.IOException;
 import java.io.InputStream;
-import java.nio.channels.Channel;
 import java.util.List;
 
 /**
@@ -13,19 +15,6 @@ import java.util.List;
  */
 public interface StorageClient extends Channel {
 
-    /**
-     * 获取通道id
-     *
-     * @return
-     */
-    String getChannelId();
-
-    /**
-     * 获取通道名称
-     *
-     * @return
-     */
-    String getChannelName();
 
     /**
      * 获取站点
@@ -119,7 +108,7 @@ public interface StorageClient extends Channel {
      * @param fullPath   完整的路径，包括文件名称
      * @return
      */
-    FileStorageObject getFile(String bucketName, String fullPath);
+    FileStorageObject getFile(String bucketName, String fullPath) throws IOException, MyException;
 
     /**
      * 是否存在文件
@@ -128,7 +117,7 @@ public interface StorageClient extends Channel {
      * @param fullPath   完整的路径，包括文件名称
      * @return
      */
-    boolean existFile(String bucketName, String fullPath);
+    boolean existFile(String bucketName, String fullPath) throws IOException, MyException;
 
     /**
      * 获取访问Url
@@ -145,7 +134,7 @@ public interface StorageClient extends Channel {
      * @param bucketName 分区名称 或 aliyun oos的 bucketName
      * @param fullPath   完整的路径，包括文件名称
      */
-    void deleteFile(String bucketName, String fullPath);
+    void deleteFile(String bucketName, String fullPath) throws IOException, MyException;
 
     /**
      * 从分区获取文件列表

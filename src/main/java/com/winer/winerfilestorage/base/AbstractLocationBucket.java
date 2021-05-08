@@ -1,11 +1,11 @@
 package com.winer.winerfilestorage.base;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+
 
 /**
  * @program: winer-file-storage-dev
@@ -13,7 +13,8 @@ import java.util.Date;
  * @Author Jekin
  * @Date 2021/4/26
  */
-@Data
+@Getter
+@Setter
 @ToString(callSuper = true)
 public class AbstractLocationBucket extends AbstractBucket{
 
@@ -28,4 +29,8 @@ public class AbstractLocationBucket extends AbstractBucket{
      * 创建时间
      */
     private LocalDateTime creationDate;
+
+    public AbstractLocationBucket(String name) {
+        super(name);
+    }
 }

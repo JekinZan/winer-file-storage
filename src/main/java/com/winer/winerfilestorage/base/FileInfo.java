@@ -1,8 +1,8 @@
 package com.winer.winerfilestorage.base;
 
 
+import cn.hutool.core.util.StrUtil;
 import com.winer.winerfilestorage.utils.ByteUtils;
-import com.winer.winerfilestorage.utils.StringUtils;
 
 /**
  * @program: winer-file-storage
@@ -60,10 +60,10 @@ public class FileInfo {
      * @param length   大小
      */
     public FileInfo(String fullPath, boolean file, long length) {
-        if (StringUtils.isNullOrEmpty(fullPath)) {
+        if (StrUtil.isEmpty(fullPath)) {
             throw new RuntimeException("完整路径不能为空。");
         }
-        this.fullPath = StringUtils.removeStart(fullPath.trim().replace("\\", "/"), '/');
+        this.fullPath = StrUtil.removePrefix(fullPath.trim().replace("\\", "/"),"/");
         if (file) {
             int fileIndex = this.fullPath.lastIndexOf("/");
             int spotIndex = this.fullPath.lastIndexOf(".");

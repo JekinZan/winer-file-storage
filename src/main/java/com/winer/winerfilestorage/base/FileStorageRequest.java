@@ -1,6 +1,5 @@
 package com.winer.winerfilestorage.base;
-import com.winer.winerfilestorage.base.FileInfo;
-import com.winer.winerfilestorage.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import lombok.Getter;
 
 import java.io.InputStream;
@@ -41,7 +40,7 @@ public class FileStorageRequest {
      *            输入流
      */
     public FileStorageRequest(String bucketName, FileInfo fileInfo, InputStream inputStream) {
-        if (StringUtils.isNullOrBlank(bucketName)) {
+        if (StrUtil.isBlank(bucketName)) {
             throw new RuntimeException("分区名不能为空");
         }
         if (fileInfo == null) {
